@@ -215,7 +215,7 @@ ibm-sfg-prod:
     enabled: false
     image:
       repository: cp.icr.io/cp/ibm-sfg/sfg-purge
-      tag: "6.1.0.0"
+      tag: 6.1.0.0
       pullPolicy: IfNotPresent
       pullSecret: ibm-entitlement-key
     schedule: "*/30 * * * *"
