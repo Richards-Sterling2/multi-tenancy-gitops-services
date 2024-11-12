@@ -1,0 +1,9 @@
+dependencies:
+- name: service-account
+  repository: https://charts.cloudnativetoolkit.dev
+  version: 0.5.0
+- name: ibm-sfg-prod
+  repository: https://hollisc.github.io/gitops-testing
+  version: 2.0.4
+digest: sha256:8e6f47ea3bbc5221d232a1f9a8fca12084cc64a10e35eeb692f115ad32500c42
+generated: "2024-11-12T16:30:09.249397-05:00"
