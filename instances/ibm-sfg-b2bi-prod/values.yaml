@@ -7,7 +7,7 @@ ibm-sfg-prod:
   global:
     image:
       repository: cp.icr.io/cp/ibm-sfg/sfg
-      tag: "6.1.0.0"
+      tag: 6.1.0.0
       pullPolicy: IfNotPresent
       pullSecret: ibm-entitlement-key
   serviceAccount:
@@ -206,10 +206,10 @@ ibm-sfg-prod:
 
   test:
     image:
-      repository: "ibmcom"
-      name: "opencontent-common-utils"
-      tag: "1.1.4"
-      pullPolicy: "IfNotPresent"
+      repository: 'ibmcom'
+      name: 'opencontent-common-utils'
+      tag: '1.1.4'
+      pullPolicy: 'IfNotPresent'
 
   purge:
     enabled: false
