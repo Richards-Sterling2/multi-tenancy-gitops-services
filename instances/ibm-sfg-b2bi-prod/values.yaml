@@ -284,7 +284,7 @@ setupCfg:
 
   # Provide the DB attributes
   dbVendor: db2
-  dbHost: 172.21.213.8
+  dbHost: 172.21.53.116
   dbPort: 50000
   dbData: B2BIDB
   dbDrivers: db2jcc4.jar
