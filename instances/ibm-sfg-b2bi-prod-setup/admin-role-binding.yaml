@@ -1,8 +1,8 @@
-# secret-creator-binding.yaml
+# admin-role-binding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: secret-creator-binding
+  name: namespace-admin-binding
   namespace: b2bi-prod
 subjects:
 - kind: ServiceAccount
@@ -10,5 +10,5 @@ subjects:
   namespace: b2bi-prod
 roleRef:
   kind: Role
-  name: secret-creator
+  name: namespace-admin
   apiGroup: rbac.authorization.k8s.io

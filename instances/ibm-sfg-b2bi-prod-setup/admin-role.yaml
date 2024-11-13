@@ -1,0 +1,16 @@
+# admin-role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: b2bi-prod
+  name: namespace-admin
+rules:
+- apiGroups: [""]  # Core API group
+  resources: ["*"] # All core resources (pods, configmaps, secrets, etc.)
+  verbs: ["*"]     # All operations (get, list, create, delete, etc.)
+- apiGroups: ["apps", "batch"]  # Other common API groups
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups: ["extensions", "networking.k8s.io", "rbac.authorization.k8s.io"]
+  resources: ["*"]
+  verbs: ["*"]
