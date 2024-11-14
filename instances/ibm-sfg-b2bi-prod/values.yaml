@@ -782,12 +782,12 @@ ac:
 
     # Supported values are "Cluster" & "Local". Default is "Cluster".
     externalTrafficPolicy: Cluster
-    ports: []
-      #- name: adapter-1
-      #  port: 30401
-      #  targetPort: 30401
-      #  nodePort: 30401
-      #  protocol: TCP
+    ports:
+      - name: adapter-1
+        port: 30401
+        targetPort: 30401
+        nodePort: 30401
+        protocol: TCP
     portRanges: []
       #- name: adapters
       #  portRange: 30501-30600
