@@ -13,3 +13,67 @@ ibm-sfg-mq:
     repository: ibmcom/mq
     pullPolicy: IfNotPresent
   storageClassName: ibmc-block-gold
+
+
+  # General configuration
+global:
+  image:
+    repository: icr.io/ibm-messaging/mq
+    tag: 9.3.0.20-r1
+  resources:
+    requests:
+      memory: "2Gi"
+      cpu: "1000m"
+    limits:
+      memory: "4Gi"
+      cpu: "2000m"
+
+# Queue Manager Configuration
+queueManager:
+  name: QM1
+  dev:
+    enabled: false
+  mqsc:
+    - |
+      DEFINE QLOCAL('DEV.QUEUE.1') REPLACE
+      DEFINE QLOCAL('DEV.QUEUE.1') REPLACE
+  ini:
+    - |
+      Service:
+        Name=AuthorizationService
+        EntryPoints=14
+
+# Persistent Storage
+persistence:
+  enabled: true
+  data:
+    size: 5Gi
+    storageClass: ibmc-block-gold
+
+# Authentication and Security
+auth:
+  type: basic
+  adminPassword: passw0rd
+  appPassword: password
+
+# Channel Configuration
+channel:
+  name: DEV.APP.SVRCONN
+  mqsc:
+    - |
+      DEFINE CHANNEL('DEV.APP.SVRCONN') CHLTYPE(SVRCONN) TRPTYPE(TCP)
+      SET CHLAUTH('DEV.APP.SVRCONN') TYPE(USERMAP) CLNTUSER('b2biuser') USERSRC(CHANNEL) ACTION(REPLACE)
+
+# Monitoring and Logging
+metrics:
+  enabled: true
+log:
+  format: json
+
+# OpenShift-specific settings
+openshift:
+  deployment:
+    replicas: 1
+  route:
+    enabled: true
+    hostname: mq-b2bi.example.com

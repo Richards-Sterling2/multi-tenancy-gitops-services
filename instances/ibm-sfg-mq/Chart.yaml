@@ -1,12 +1,12 @@
 apiVersion: v2
-name: ibm-sfg-mq
-version: 0.1.6
-appVersion: "1.16.0"
-description: CNTK - IBM MQ for SFG
+name: ibm-mq-b2bi
+version: 0.1.0
+appVersion: "9.3.0.20"
+description: IBM MQ deployment for integration with IBM B2Bi
 dependencies:
   - name: service-account
     version: 0.5.0
     repository: https://charts.cloudnativetoolkit.dev
-  - name: ibm-sfg-mq
-    version: 0.1.4
-    repository: https://hollisc.github.io/gitops-testing
+  - name: ibm-mq
+    version: 1.7.1
+    repository: https://ibm.github.io/charts
