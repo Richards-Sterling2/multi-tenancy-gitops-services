@@ -412,8 +412,8 @@ asi:
     extraEnvs: []
     
   frontendService:
-    # type: ClusterIP
-    type: LoadBalancer
+    type: ClusterIP
+    # type: LoadBalancer
     #by default sessionAffinity is configured to ClientIP
     #override session affinity timeout configuration
     sessionAffinityConfig:
@@ -470,7 +470,7 @@ asi:
     loadBalancerIP:  
     loadBalancerSourceRanges:
       #- "143.231.0.0/16"
-      - "0.0.0.0/0" 
+      # - "0.0.0.0/0" 
     annotations: {}  
   
   backendService:
