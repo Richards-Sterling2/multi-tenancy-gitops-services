@@ -412,7 +412,8 @@ asi:
     extraEnvs: []
     
   frontendService:
-    type: ClusterIP
+    # type: ClusterIP
+    type: LoadBalancer
     #by default sessionAffinity is configured to ClientIP
     #override session affinity timeout configuration
     sessionAffinityConfig:
@@ -467,13 +468,14 @@ asi:
       # nodePort: 30100
       # protocol: TCP
     loadBalancerIP:  
-    loadBalancerSourceRanges: []
+    loadBalancerSourceRanges:
       #- "143.231.0.0/16"
+      - "0.0.0.0/0" 
     annotations: {}  
   
   backendService:
-    # type: LoadBalancer
-    type: NodePort
+    type: LoadBalancer
+    # type: NodePort
     # Supported values are "ClientIP" & "None". Default is "None".
     sessionAffinity: None
     #override session affinity timeout configuration (applicable when sessionAffinity is configured other than "None")
@@ -498,8 +500,9 @@ asi:
       #  nodePortRange: 30301-30400
       #  protocol: TCP
     loadBalancerIP:  
-    loadBalancerSourceRanges: []
+    loadBalancerSourceRanges: 
       #- "143.231.0.0/16"
+      - "0.0.0.0/0"
     annotations: {}
       
   livenessProbe:
